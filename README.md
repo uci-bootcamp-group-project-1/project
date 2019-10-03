@@ -8,6 +8,6 @@ An application where you can search for the nutritional value for foods and meal
 
 ## Installation Instructions
 
--   `git pull / git merget`
+-   `git pull / git merge`
 -   `npm install`
 -   `npm start`
