@@ -1,6 +1,6 @@
 {
     "title": "nYelp",
-    "name": "Nutritional Yelp",
+    "name": "github.com",
     "version": "1.0.0",
     "scripts": {
         "start": "node_modules/.bin/gulp watch"
@@ -14,10 +14,10 @@
         "theme",
         "template"
     ],
-    "homepage": "",
+    "homepage": "https://www.github.com",
     "bugs": {
-        "url": "",
-        "email": ""
+        "url": "https://www.github.com",
+        "email": "example@gmail.com"
     },
     "license": "MIT",
     "author": "Amir, Cloud and Pablo",
