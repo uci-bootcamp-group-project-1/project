@@ -18,8 +18,8 @@ const pkg = require('./package.json');
 
 // Set the banner content
 const banner = [
-    ' * Copyright 2019-' + new Date().getFullYear(),
-    ' <%= pkg.author %>\n'
+    ' /* Copyright 2019-' + new Date().getFullYear(),
+    ' <%= pkg.author %> */\n'
 ].join('');
 
 // BrowserSync
@@ -120,18 +120,6 @@ function js() {
             '!./js/contact_me.js',
             '!./js/jqBootstrapValidation.js'
         ])
-        .pipe(uglify())
-        .pipe(
-            header(banner, {
-                pkg: pkg
-            })
-        )
-        .pipe(
-            rename({
-                suffix: '.min'
-            })
-        )
-        .pipe(gulp.dest('./js'))
         .pipe(browsersync.stream());
 }
 
