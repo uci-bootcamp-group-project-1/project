@@ -10,4 +10,4 @@ An application where you can search for the nutritional value for foods and meal
 
 -   `git pull / git merge`
 -   `npm install`
--   `npm start`
+-   `npm start` or 'gulp watch'
