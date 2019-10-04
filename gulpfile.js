@@ -121,17 +121,6 @@ function js() {
             '!./js/jqBootstrapValidation.js'
         ])
         .pipe(uglify())
-        .pipe(
-            header(banner, {
-                pkg: pkg
-            })
-        )
-        .pipe(
-            rename({
-                suffix: '.min'
-            })
-        )
-        .pipe(gulp.dest('./js'))
         .pipe(browsersync.stream());
 }
 
