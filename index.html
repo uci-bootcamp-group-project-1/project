@@ -81,12 +81,14 @@
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
-          <div class="intro-lead-in">Welcome To Our Studio!</div>
-          <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+          <div class="intro-heading text-uppercase">Welcome!</div>
+          <div class="intro-lead-in">
+            nYelp will help you find your favorite foods
+          </div>
           <a
             class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
             href="#services"
-            >Tell Me More</a
+            >Find your food</a
           >
         </div>
       </div>
@@ -100,40 +102,29 @@
             <h2 class="section-heading text-uppercase">Search</h2>
             <h3 class="section-subheading text-muted">
               <div class="active-pink-3 active-pink-4 mb-4">
-                <input
-                  class="form-control"
-                  type="text"
-                  placeholder="Enter your craving"
-                  aria-label="Search"
-                />
+                <form>
+                  <input
+                    class="form-control mt-5"
+                    type="text"
+                    placeholder="Enter your craving"
+                    aria-label="Search"
+                    id="searchInput"
+                  />
+                  <button
+                    class="btn btn-primary btn-xl text-center mt-5"
+                    data-toggle="modal"
+                    href="#portfolioModal1"
+                    id="search"
+                  >
+                    Search
+                  </button>
+                </form>
               </div>
             </h3>
           </div>
         </div>
         <div class="row text-center">
           <!-- modal trigger  -->
-          <div class="col-md-4 offset-md-4 col-sm-6 portfolio-item">
-            <a
-              class="portfolio-link"
-              data-toggle="modal"
-              href="#portfolioModal1"
-            >
-              <div class="portfolio-hover">
-                <div class="portfolio-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img
-                class="img-fluid"
-                src="img/portfolio/01-thumbnail.jpg"
-                alt=""
-              />
-            </a>
-            <div class="portfolio-caption">
-              <h4>Threads</h4>
-              <p class="text-muted">Illustration</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -319,11 +310,9 @@
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for this template -->
-  <script src="js/agency.js"></script>
-  <script src="js/api-key.js"></script>
-  <script src="js/api.js"></script>
-
-</body>
-
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.js"></script>
+    <script src="js/api-key.js"></script>
+    <script src="js/api.js"></script>
+  </body>
 </html>
