@@ -1,6 +1,6 @@
 var edamamID = api.edamam.add_id;
 var edamamKEY = api.edamam.app_key;
-var edamanQuery = 'chicken';
+var edamanQuery = 'chicken'; // value we will get from SEARCH INPUT
 
 var cors = 'https://pm-cors.herokuapp.com/'; // cors anywhere server to prevent 'Allow-Control-Allow-Origin' issue
 
@@ -40,9 +40,11 @@ $(document).ready(function() {
             },
             method: 'GET'
         }).then(function(response) {
-            console.log(response);
+            console.dir(response.hits[0].recipe);
             ///////////////////////////////////////
             /// PABLO MOTTA - Write edamam Logic here
+            // var responseItems = response.hits; // ARRAY
+            // responseItems.map;
 
             ///////////////////////////////////////
         });
@@ -53,7 +55,6 @@ $(document).ready(function() {
             latitude +
             '&longitude=' +
             longitude;
-        console.log(yelpURL);
         $.ajax({
             url: yelpURL,
             headers: {
