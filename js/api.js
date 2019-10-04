@@ -41,6 +41,10 @@ $(document).ready(function() {
             method: 'GET'
         }).then(function(response) {
             console.log(response);
+            ///////////////////////////////////////
+            /// PABLO MOTTA - Write edamam Logic here
+
+            ///////////////////////////////////////
         });
         // yelp ajax call
         var yelpURL =
@@ -62,6 +66,10 @@ $(document).ready(function() {
             }
         }).then(function(response) {
             console.log(response);
+            ///////////////////////////////////////
+            /// CLOUD XU - Write Yelp Logic here
+
+            ///////////////////////////////////////
         });
     }
 
