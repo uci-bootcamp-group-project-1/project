@@ -18,7 +18,7 @@
     &:active,
     &:focus,
     &:hover {
-      color: darken($primary, 10%);
+      color: darken($primary, 30%);
     }
   }
   .navbar-nav {
@@ -38,7 +38,7 @@
     }
   }
 }
-@media(min-width:992px) {
+@media (min-width: 992px) {
   #mainNav {
     padding-top: 25px;
     padding-bottom: 25px;
