@@ -1,0 +1,14 @@
+// Styling for the services section
+.service-heading {
+    margin: 15px 0;
+    text-transform: none;
+}
+
+#searchInput {
+    padding: 1.8rem 2rem;
+    &:active,
+    &:focus {
+        box-shadow: 0 0 5px $primary;
+        border: $primary;
+    }
+}
