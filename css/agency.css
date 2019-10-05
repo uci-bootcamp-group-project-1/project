@@ -99,7 +99,12 @@ img::-moz-selection {
 }
 
 .btn-primary:active, .btn-primary:focus {
-  box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
+  box-shadow: 0 0 0 0.2rem #ad2626 !important;
+}
+
+.btn-primary:disabled {
+  background-color: #cc2d2d;
+  border: #cc2d2d;
 }
 
 #mainNav {
@@ -220,6 +225,15 @@ header.masthead .intro-text .intro-heading {
 .service-heading {
   margin: 15px 0;
   text-transform: none;
+}
+
+#searchInput {
+  padding: 1.8rem 2rem;
+}
+
+#searchInput:active, #searchInput:focus {
+  box-shadow: 0 0 5px #cc2d2d;
+  border: #cc2d2d;
 }
 
 #portfolio .portfolio-item {

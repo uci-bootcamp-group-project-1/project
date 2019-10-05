@@ -14,25 +14,16 @@ $(document).ready(function() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(runYelp, showError);
         } else {
-            $locationError.innerHTML =
-                'Geolocation is not supported by this browser.';
+            $locationError.innerHTML = 'Geolocation is not supported by this browser.';
         }
     }
     // fetch current location, pass it to yelp API call, run API call.
     function runYelp(position) {
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
-        console.log(latitude, longitude);
+        // console.log(latitude, longitude);
         // edamam ajax call
-        var edamamURL =
-            cors +
-            'https://api.edamam.com/search?q=' +
-            edamanQuery +
-            '&app_id=' +
-            edamamID +
-            '&app_key=' +
-            edamamKEY +
-            '&from=0&to=5&calories=500-1000';
+        var edamamURL = cors + 'https://api.edamam.com/search?q=' + edamanQuery + '&app_id=' + edamamID + '&app_key=' + edamamKEY + '&from=0&to=5&calories=500-1000';
         $.ajax({
             url: edamamURL,
             headers: {
@@ -40,21 +31,45 @@ $(document).ready(function() {
             },
             method: 'GET'
         }).then(function(response) {
-            console.dir(response.hits[0].recipe);
             ///////////////////////////////////////
-            /// PABLO MOTTA - Write edamam Logic here
-            // var responseItems = response.hits; // ARRAY
-            // responseItems.map;
+            /// Write edamam Logic here
+
+            var responseItems = response.hits; // ARRAY
+            var responseItemsSet = responseItems.slice(0, 5);
+            ////////////////////////////////////////
+            // loop through edamam recipes and extract data
+
+            responseItemsSet.forEach(item => {
+                var label = item.recipe.label;
+                // console.log(label);
+                var image = item.recipe.image;
+                // console.log(image);
+                var url = item.recipe.url;
+                // console.log(url);
+                var healthLabels = item.recipe.healthLabels;
+
+                var healthLabelsSet = healthLabels.slice(0, 3);
+                healthLabelsSet.forEach(labelItem => {
+                    var healthLabel = labelItem;
+                    // console.log(healthLabel);
+                });
+
+                var dietLabels = item.recipe.dietLabels;
+                dietLabelsSet = dietLabels.slice(0, 3);
+                dietLabelsSet.forEach(dietLabelItem => {
+                    var dietLabel = dietLabelItem;
+                    // console.log(dietLabel);
+                });
+                // console.log(healthLabelsSet);
+
+                /////////////////////////////////////
+                // Create recipe modal cards and append data
+            });
 
             ///////////////////////////////////////
         });
         // yelp ajax call
-        var yelpURL =
-            cors +
-            'https://api.yelp.com/v3/transactions/delivery/search?term=hotdog&latitude=' +
-            latitude +
-            '&longitude=' +
-            longitude;
+        var yelpURL = cors + 'https://api.yelp.com/v3/transactions/delivery/search?term=hotdog&latitude=' + latitude + '&longitude=' + longitude;
         $.ajax({
             url: yelpURL,
             headers: {
@@ -66,11 +81,23 @@ $(document).ready(function() {
                 console.log('success: ' + data);
             }
         }).then(function(response) {
-            console.log(response);
-            ///////////////////////////////////////
-            /// CLOUD XU - Write Yelp Logic here
-
-            ///////////////////////////////////////
+            var restaurants = response.businesses;
+            var restaurantsSet = restaurants.slice(0, 5);
+            console.log(restaurantsSet[0]);
+            restaurantsSet.forEach(item => {
+                var restaurantName = item.name; // name of restaurant
+                var phoneNum = item.display_phone; // phone number
+                var imageUrl = item.image_url; // image
+                var url = item.url; // url of each restaurant
+                var categories = item.categories;
+                var categoriesSet = categories.slice(0, 2);
+                categoriesSet.forEach(itemCategory => {
+                    var category = itemCategory.alias; // category of each restaurant
+                    // console.log(category);
+                });
+                /////////////////////////////////////
+                // Create yelp modal cards and append data
+            });
         });
     }
 
@@ -78,16 +105,13 @@ $(document).ready(function() {
     function showError(error) {
         switch (error.code) {
             case error.PERMISSION_DENIED:
-                $locationError.innerHTML =
-                    'User denied the request for Geolocation.';
+                $locationError.innerHTML = 'User denied the request for Geolocation.';
                 break;
             case error.POSITION_UNAVAILABLE:
-                $locationError.innerHTML =
-                    'Location information is unavailable.';
+                $locationError.innerHTML = 'Location information is unavailable.';
                 break;
             case error.TIMEOUT:
-                $locationError.innerHTML =
-                    'The request to get user location timed out.';
+                $locationError.innerHTML = 'The request to get user location timed out.';
                 break;
             case error.UNKNOWN_ERROR:
                 $locationError.innerHTML = 'An unknown error occurred.';

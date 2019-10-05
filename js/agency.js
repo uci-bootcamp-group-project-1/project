@@ -3,15 +3,9 @@
 
     // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-        if (
-            location.pathname.replace(/^\//, '') ==
-                this.pathname.replace(/^\//, '') &&
-            location.hostname == this.hostname
-        ) {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var target = $(this.hash);
-            target = target.length
-                ? target
-                : $('[name=' + this.hash.slice(1) + ']');
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
             if (target.length) {
                 $('html, body').animate(
                     {
@@ -48,4 +42,17 @@
     navbarCollapse();
     // Collapse the navbar when page is scrolled
     $(window).scroll(navbarCollapse);
+
+    ////////////////////////////////////
+    // enable search button when search input is filled
+    var $searchInput = $('#searchInput');
+    var $searchButton = $('#searchButton');
+
+    $searchInput.on('keyup', () => {
+        if ($searchInput.val() !== '') {
+            $searchButton.prop('disabled', false);
+        } else {
+            $searchButton.prop('disabled', true);
+        }
+    });
 })(jQuery); // End of use strict
