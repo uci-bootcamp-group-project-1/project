@@ -37,4 +37,6 @@ jQuery.updateYp = function() {
             }
         }
     });
+
+    $("APImodel").show();
 };
