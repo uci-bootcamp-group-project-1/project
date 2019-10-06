@@ -17,12 +17,11 @@ $('<div>', {
                 }
             }).append(
                 $('<h4>', {
-                    class: 'data-title',
+                    class: 'data-title mb-5',
                     html: 'Recipes'
                 }),
                 $('<div>', {
-                    class: 'recipe-cards',
-                    html: 'recipe cards'
+                    class: 'recipe-cards'
                 })
             )
         ),
@@ -39,7 +38,7 @@ $('<div>', {
                 }
             }).append(
                 $('<h4>', {
-                    class: 'data-title',
+                    class: 'data-title mb-5',
                     html: 'Find Your Food Nearby'
                 }),
                 $('<div>', {

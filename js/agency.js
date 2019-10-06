@@ -48,10 +48,10 @@
     var $searchInput = $('#searchInput');
     var $searchButton = $('#searchButton');
 
-    $searchInput.on('keyup', () => {
+    $searchInput.on('keydown', () => {
         if ($searchInput.val() !== '') {
             $searchButton.prop('disabled', false);
-        } else {
+        } else if ($searchInput.val() === '') {
             $searchButton.prop('disabled', true);
         }
     });
