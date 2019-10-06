@@ -30,8 +30,10 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "5.10.2",
+        "api": "^1.0.0",
         "bootstrap": "4.3.1",
         "jquery": "3.4.1",
+        "jquery-confirm": "^3.3.4",
         "jquery.easing": "^1.4.1",
         "popper.js": "^1.15.0"
     },

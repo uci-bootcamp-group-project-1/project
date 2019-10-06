@@ -18,6 +18,10 @@
         <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
 
+        <!-- style sheet for jquery-confirm -->
+        >
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" />
+
         <!-- Custom styles for this template -->
         <link href="css/agency.min.css" rel="stylesheet" />
     </head>
@@ -78,10 +82,14 @@
                     <div class="col-md-4 offset-md-4 mt-5">
                         <form>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Your yummy food" />
+                                <!-- changing id to searchContent for readability  and change input type from password to text - cxu -->
+                                <input type="text" class="form-control" id="searchContent" placeholder="Your yummy food" />
                             </div>
                         </form>
-                        <button class="btn btn-xl btn-primary mt-5" data-toggle="modal" href="#portfolioModal1">Search</button>
+                        <!-- adding search id to flavor jquery coding -->
+                        <button class="btn btn-xl btn-primary mt-5" id="search" data-toggle="modal" href="#portfolioModal1">
+                            Search
+                        </button>
                     </div>
                 </div>
             </div>
@@ -147,7 +155,8 @@
                     <div class="col-sm-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="" />
-                            <h4>Cloud Xu</h4>
+          d.js"></script>
+        <script src="js/api-v2.js"></script>                  <h4>Cloud Xu</h4>
                             <p class="text-muted">Full Stack Developer</p>
                             <ul class="list-inline social-buttons">
                                 <li class="list-inline-item">
@@ -172,9 +181,9 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center">
                         <p class="large text-muted">
-                            We are a small group of students who are doing continued education at UC Irvine's coding bootcamp. This is the website we created for our first group
-                            project. On here we utilized the API's from yelp, edamam and geolocation to give the user instant information on nutrition facts and a nearby location
-                            to eat.
+                            We are a small group of students who are doing continued education at UC Irvine's coding bootcamp. This is the
+                            website we created for our first group project. On here we utilized the API's from yelp, edamam and geolocation to
+                            give the user instant information on nutrition facts and a nearby location to eat.
                         </p>
                     </div>
                 </div>
@@ -230,11 +239,16 @@
 
         <!-- Plugin JavaScript -->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
         <!-- Custom scripts for this template -->
         <script src="js/agency.js"></script>
+        <script src="js/modal.js"></script>
         <script src="js/api-key.js"></script>
         <script src="js/api.js"></script>
-        <script src="js/modal.js"></script>
+
+        <!-- Script for leaning purpose do not use -->
+        <!-- <script src="wasted_time/apiLoad.js"></script>
+        <script src="wasted_time/api-v2.js"></script> -->
     </body>
 </html>

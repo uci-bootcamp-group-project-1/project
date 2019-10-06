@@ -1,99 +1,124 @@
 var edamamID = api.edamam.add_id;
 var edamamKEY = api.edamam.app_key;
-var edamanQuery = 'chicken'; // value we will get from SEARCH INPUT
+// bind value to searchContent - cxu
+var edamanQuery = $("#searchContent").val();
 
-var cors = 'https://pm-cors.herokuapp.com/'; // cors anywhere server to prevent 'Allow-Control-Allow-Origin' issue
+var cors = "https://pm-cors.herokuapp.com/"; // cors anywhere server to prevent 'Allow-Control-Allow-Origin' issue
 
 var yelpAuthorization = api.yelp.headers.Authorization;
 
 $(document).ready(function() {
-    var $locationError = $('#error'); //append this to html page in case of geoLocation error.set time so location disappears after 3 seconds
+    var $locationError = $("#error"); //append this to html page in case of geoLocation error.set time so location disappears after 3 seconds
 
     // get location and run yelp function
-    function getLocationRunYelp() {
+    function searchFood() {
+        // rename function to searchFood for read - cxu
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(runYelp, showError);
+            navigator.geolocation.getCurrentPosition(runSearch, showError);
         } else {
-            $locationError.innerHTML =
-                'Geolocation is not supported by this browser.';
+            $locationError.innerHTML = "Geolocation is not supported by this browser.";
         }
     }
     // fetch current location, pass it to yelp API call, run API call.
-    function runYelp(position) {
+    function runSearch(position) {
+        //rename function to runSearch for read - cxu
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
         console.log(latitude, longitude);
         // edamam ajax call
         var edamamURL =
             cors +
-            'https://api.edamam.com/search?q=' +
+            "https://api.edamam.com/search?q=" +
             edamanQuery +
-            '&app_id=' +
+            "&app_id=" +
             edamamID +
-            '&app_key=' +
+            "&app_key=" +
             edamamKEY +
-            '&from=0&to=5&calories=500-1000';
+            "&from=0&to=5&calories=500-1000";
         $.ajax({
             url: edamamURL,
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json"
             },
-            method: 'GET'
-        }).then(function(response) {
-            console.dir(response.hits[0].recipe);
-            ///////////////////////////////////////
-            /// PABLO MOTTA - Write edamam Logic here
-            // var responseItems = response.hits; // ARRAY
-            // responseItems.map;
-
-            ///////////////////////////////////////
+            method: "GET"
+        }).then(function(res) {
+            saveReceipt(res);
         });
+
         // yelp ajax call
-        var yelpURL =
-            cors +
-            'https://api.yelp.com/v3/transactions/delivery/search?term=hotdog&latitude=' +
-            latitude +
-            '&longitude=' +
-            longitude;
+        var yelpURL = cors + "https://api.yelp.com/v3/transactions/delivery/search?term=hotdog&latitude=" + latitude + "&longitude=" + longitude;
         $.ajax({
             url: yelpURL,
             headers: {
                 Authorization: yelpAuthorization
             },
-            method: 'GET',
-            dataType: 'json',
+            method: "GET",
+            dataType: "json",
             success: function(data) {
-                console.log('success: ' + data);
+                console.log("success: " + data);
             }
-        }).then(function(response) {
-            console.log(response);
-            ///////////////////////////////////////
-            /// CLOUD XU - Write Yelp Logic here
-
-            ///////////////////////////////////////
-        });
+        }).then(function(res) {
+            saveYelp(res);
+        }); // CLOUD XU - Write Yelp Logic here
+        // data has been stored, processing data analysis in seperate file - cxu
     }
 
     //handle errors in case geo location doesn't work.
     function showError(error) {
         switch (error.code) {
             case error.PERMISSION_DENIED:
-                $locationError.innerHTML =
-                    'User denied the request for Geolocation.';
+                $locationError.innerHTML = "User denied the request for Geolocation.";
                 break;
             case error.POSITION_UNAVAILABLE:
-                $locationError.innerHTML =
-                    'Location information is unavailable.';
+                $locationError.innerHTML = "Location information is unavailable.";
                 break;
             case error.TIMEOUT:
-                $locationError.innerHTML =
-                    'The request to get user location timed out.';
+                $locationError.innerHTML = "The request to get user location timed out.";
                 break;
             case error.UNKNOWN_ERROR:
-                $locationError.innerHTML = 'An unknown error occurred.';
+                $locationError.innerHTML = "An unknown error occurred.";
                 break;
         }
     }
 
-    getLocationRunYelp(); // run this function on click when user searches for
+    ///////////////////////////////////////////////////////
+    // jquery pull wrapper for receipt yelp data section //
+    // create new data-attribute and save response       //
+    // cxu                                               //
+    ///////////////////////////////////////////////////////
+    function saveReceipt(obj) {
+        console.log("dmsg: receipt saved as data");
+        console.log(obj);
+        $(".rp-cards").val(obj);
+    }
+
+    function saveYelp(obj) {
+        console.log("dmsg: yelp saved as data");
+        console.log(obj);
+        $(".yp-cards").val(obj);
+    }
+
+    $("#search").click(function() {
+        // get searchContent - cxu
+        console.log("dmsg: event bind to click now runs");
+        searchContent = $("#searchContent").val();
+        if (
+            // check if input is a string and input not empty or whitespace
+            typeof searchContent === "string" &&
+            searchContent
+                .split(" ")
+                .join("")
+                .split("").length > 0
+        ) {
+            console.log("dmsg: content format valid run search");
+            searchFood();
+        } else {
+            $.alert({
+                // create an alert model if the input does not meet requirements
+                title: "Input Error!",
+                content: "Input is food! Empty input also not allowed !"
+            });
+        } // run this function on click when user searches for
+        // event trigger click bind to search button - cxu
+    });
 });
