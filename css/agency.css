@@ -299,14 +299,17 @@ header.masthead .intro-text .intro-heading {
 }
 
 .api-modal .modal-dialog {
-  margin: 1rem;
-  max-width: 80vw;
-  margin: 140px auto;
+  max-width: 86vw;
+  margin: 3rem auto;
 }
 
 .api-modal .modal-content {
   padding: 100px 0;
   text-align: center;
+}
+
+.api-modal .modal-content div {
+  margin: 0 auto;
 }
 
 .api-modal .modal-content h2 {
@@ -327,10 +330,6 @@ header.masthead .intro-text .intro-heading {
 
 .api-modal .modal-content ul.list-inline {
   margin-top: 0;
-  margin-bottom: 30px;
-}
-
-.api-modal .modal-content img {
   margin-bottom: 30px;
 }
 

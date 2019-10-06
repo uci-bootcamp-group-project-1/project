@@ -11,14 +11,14 @@ $(document).ready(function() {
     var $locationError = $("#error"); //append this to html page in case of geoLocation error.set time so location disappears after 3 seconds
 
     // get location and run yelp function
-    function searchFood() {
+    jQuery.searchFood = function() {
         // rename function to searchFood for read - cxu
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(runSearch, showError);
         } else {
             $locationError.innerHTML = "Geolocation is not supported by this browser.";
         }
-    }
+    };
     // fetch current location, pass it to yelp API call, run API call.
     function runSearch(position) {
         //rename function to runSearch for read - cxu
@@ -97,28 +97,4 @@ $(document).ready(function() {
         console.log(obj);
         $(".yp-cards").val(obj);
     }
-
-    $("#search").click(function() {
-        // get searchContent - cxu
-        console.log("dmsg: event bind to click now runs");
-        searchContent = $("#searchContent").val();
-        if (
-            // check if input is a string and input not empty or whitespace
-            typeof searchContent === "string" &&
-            searchContent
-                .split(" ")
-                .join("")
-                .split("").length > 0
-        ) {
-            console.log("dmsg: content format valid run search");
-            searchFood();
-        } else {
-            $.alert({
-                // create an alert model if the input does not meet requirements
-                title: "Input Error!",
-                content: "Input is food! Empty input also not allowed !"
-            });
-        } // run this function on click when user searches for
-        // event trigger click bind to search button - cxu
-    });
 });

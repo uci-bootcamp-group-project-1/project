@@ -22,6 +22,9 @@
         >
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" />
 
+        <!-- style sheet for rating stars -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css" />
+
         <!-- Custom styles for this template -->
         <link href="css/agency.min.css" rel="stylesheet" />
     </head>
@@ -87,7 +90,8 @@
                             </div>
                         </form>
                         <!-- adding search id to flavor jquery coding -->
-                        <button class="btn btn-xl btn-primary mt-5" id="search" data-toggle="modal" href="#portfolioModal1">
+                        <button class="btn btn-xl btn-primary mt-5" id="search" data-toggle="modal">
+                            <!-- removed trigger to display model on click -->
                             Search
                         </button>
                     </div>
@@ -155,8 +159,7 @@
                     <div class="col-sm-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle" src="img/team/3.jpg" alt="" />
-          d.js"></script>
-        <script src="js/api-v2.js"></script>                  <h4>Cloud Xu</h4>
+                            <h4>Cloud Xu</h4>
                             <p class="text-muted">Full Stack Developer</p>
                             <ul class="list-inline social-buttons">
                                 <li class="list-inline-item">
@@ -204,7 +207,7 @@
         <!-- Portfolio Modals -->
 
         <!-- Modal 1 -->
-        <div class="api-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="api-modal modal fade" id="apiModal1" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="close-modal" data-dismiss="modal">
@@ -216,7 +219,7 @@
                         <div class="row">
                             <div class="col mx-auto">
                                 <!-- Returned Item title -->
-                                <h2 class="text-uppercase">Project Name</h2>
+                                <h2 class="text-uppercase" id="searchContent">DOM replace with searchContent</h2>
                                 <div class="modal-body api-data container-fluid">
                                     <!-- Project Details Go Here -->
                                     <!-- Project api data container -->
@@ -240,12 +243,14 @@
         <!-- Plugin JavaScript -->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 
         <!-- Custom scripts for this template -->
         <script src="js/agency.js"></script>
         <script src="js/modal.js"></script>
         <script src="js/api-key.js"></script>
         <script src="js/api.js"></script>
+        <script src="js/yelp.js"></script>
 
         <!-- Script for leaning purpose do not use -->
         <!-- <script src="wasted_time/apiLoad.js"></script>

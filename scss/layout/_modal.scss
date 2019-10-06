@@ -1,13 +1,15 @@
 // styling for modal
 .api-modal {
     .modal-dialog {
-        margin: 1rem;
-        max-width: 80vw;
-        margin: 140px auto;
+        max-width: 86vw;
+        margin: 3rem auto;
     }
     .modal-content {
         padding: 100px 0;
         text-align: center;
+        div {
+            margin: 0 auto;
+        }
         h2 {
             font-size: 3em;
             margin-bottom: 15px;
@@ -25,9 +27,7 @@
             margin-top: 0;
             margin-bottom: 30px;
         }
-        img {
-            margin-bottom: 30px;
-        }
+        // removed img tag since not using it
         button {
             cursor: pointer;
         }
