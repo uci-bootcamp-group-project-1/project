@@ -5,7 +5,7 @@ $('<div>', {
 })
     .append(
         $('<div>', {
-            class: 'col-md-6 col-sm-12 mx-auto',
+            class: 'col-lg-6 col-md-12 mx-auto',
             css: {
                 'margin-bottom': '10px'
             }
@@ -17,7 +17,7 @@ $('<div>', {
                 }
             }).append(
                 $('<h4>', {
-                    class: 'data-title mb-5',
+                    class: 'data-title mb-5 text-uppercase',
                     html: 'Recipes'
                 }),
                 $('<div>', {
@@ -26,7 +26,7 @@ $('<div>', {
             )
         ),
         $('<div>', {
-            class: 'col-md-6 col-sm-12 mx-auto',
+            class: 'col-lg-6 col-md-12 mx-auto',
             css: {
                 'margin-bottom': '10px'
             }
@@ -38,12 +38,11 @@ $('<div>', {
                 }
             }).append(
                 $('<h4>', {
-                    class: 'data-title mb-5',
+                    class: 'data-title mb-5 text-uppercase',
                     html: 'Find Your Food Nearby'
                 }),
                 $('<div>', {
-                    class: 'yelp-cards',
-                    html: 'yelp cards'
+                    id: 'yelp-cards'
                 })
             )
         )

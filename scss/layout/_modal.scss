@@ -1,9 +1,8 @@
 // styling for modal
 .api-modal {
     .modal-dialog {
-        margin: 1rem;
         max-width: 80vw;
-        margin: 140px auto;
+        margin: 40px auto;
     }
     .modal-content {
         padding: 100px 0;
@@ -66,5 +65,21 @@
                 background-color: darkgrey;
             }
         }
+    }
+}
+.no-gutters {
+    height: 207px;
+}
+.card {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.card-img {
+    height: 207px;
+}
+
+@media only screen and (max-width: 1300px) {
+    .card-title,
+    .card-text {
+        font-size: 0.8rem;
     }
 }
