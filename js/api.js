@@ -39,7 +39,8 @@ $(document).ready(function() {
             // loop through edamam recipes and extract data
 
             responseItemsSet.forEach(item => {
-                var label = item.recipe.label;
+                var labelFull = item.recipe.label;
+                var label = labelFull.substring(0, 20) + '...';
                 var image = item.recipe.image;
                 var url = item.recipe.url;
                 // console.log(url);
@@ -49,43 +50,13 @@ $(document).ready(function() {
                 var servingsDecimal = Math.floor(servings).toString();
                 var calPerPerson = calories / servings;
                 var calPerPersonDecimal = Math.floor(calPerPerson).toString();
-                // var healthLabels = item.recipe.healthLabels;
-                // console.log(healthLabels);
-                // var healthLabelsSet = healthLabels.slice(0, 1);
-                // console.log(healthLabelsSet);
-                // healthLabelsSet.forEach(labelItem => {
-                //     var healthLabel = labelItem;
-                //     // console.log(healthLabel);
-                //     $('.healthLabel').append(
-                //         $('<li>', {
-                //             class: 'card-text',
-                //             html: healthLabel
-                //         })
-                //     );
-                // });
-
-                // var dietLabels = item.recipe.dietLabels[item];
-                // console.log(dietLabels);
-                // dietLabelsSet = dietLabels.slice(0, 3);
-                // // console.log(dietLabelsSet);
-                // dietLabelsSet.forEach(dietLabelItem => {
-                //     var dietLabel = dietLabelItem;
-                //     // console.log(dietLabel);
-                //     $('.healthLabel').append(
-                //         $('<li>', {
-                //             class: 'card-text',
-                //             html: dietLabel
-                //         })
-                //     );
-                // });
-                // console.log(healthLabelsSet);
 
                 /////////////////////////////////////
                 // Create recipe modal cards and append data
                 var $edamamCards = $('.recipe-cards');
 
                 $('<div>', {
-                    class: 'card mb-5',
+                    class: 'card mb-5 edamam',
                     href: url,
                     target: '_blank'
                 })
@@ -124,7 +95,8 @@ $(document).ready(function() {
                                 )
                             ),
                             $('<div>', {
-                                class: 'col-sm-4'
+                                class: ' col-4 col-sm-4',
+                                id: 'hide'
                             }).append(
                                 $('<div>', {
                                     class: 'card-body'
@@ -167,7 +139,8 @@ $(document).ready(function() {
             var restaurants = response.businesses;
             var restaurantsSet = restaurants.slice(0, 5);
             restaurantsSet.forEach(item => {
-                var restaurantName = item.name; // name of restaurant
+                var restaurantNameFull = item.name; // name of restaurant
+                var restaurantName = restaurantNameFull.slice(0, 20);
                 var restaurantPhone = item.display_phone; // phone number
                 var restaurantPhoneLink = item.phone;
                 var restaurantImage = item.image_url; // image
@@ -175,17 +148,12 @@ $(document).ready(function() {
                 var restaurantCategories = item.categories;
 
                 var restaurantCategoriesSet = restaurantCategories.slice(0, 2);
-                // console.log(restaurantCategoriesSet[0].title);
-                // restaurantCategoriesSet.forEach(itemCategory => {
-                //     var category = itemCategory.alias; // category of each restaurant
-                //     // console.log(category);
-                // });
-                /////////////////////////////////////
+
                 // Create yelp modal cards and append data
                 var $yelpCards = $('#yelp-cards');
 
                 $('<div>', {
-                    class: 'card mb-5',
+                    class: 'card mb-5 yelp',
                     target: '_blank'
                 })
                     .append(
@@ -216,8 +184,10 @@ $(document).ready(function() {
                                         href: 'tel:' + restaurantPhoneLink
                                     }),
                                     $('<br>'),
+                                    $('<br>'),
+                                    $('<br>'),
                                     $('<a>', {
-                                        class: 'card-text text-uppercase',
+                                        class: 'card-text text-uppercase yelp-website',
                                         href: restaurantUrl,
                                         html: 'visit website',
                                         target: '_blank'
@@ -225,7 +195,8 @@ $(document).ready(function() {
                                 )
                             ),
                             $('<div>', {
-                                class: 'col-sm-4'
+                                class: ' col-4 col-sm-4',
+                                id: 'hide'
                             }).append(
                                 $('<div>', {
                                     class: 'card-body'
