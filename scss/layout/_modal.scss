@@ -7,6 +7,9 @@
     .modal-content {
         padding: 100px 0;
         text-align: center;
+        div {
+            margin: 0 auto;
+        }
         h2 {
             font-size: 3em;
             margin-bottom: 15px;
@@ -24,9 +27,7 @@
             margin-top: 0;
             margin-bottom: 30px;
         }
-        img {
-            margin-bottom: 30px;
-        }
+        // removed img tag since not using it
         button {
             cursor: pointer;
         }

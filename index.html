@@ -10,7 +10,7 @@
 
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css" />
         <!-- Custom fonts for this template -->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
@@ -84,7 +84,7 @@
                                 <input type="text" class="form-control" id="searchInput" placeholder="Your yummy food" />
                             </div>
                         </form>
-                        <button class="btn btn-xl btn-primary mt-5 text-uppercase" data-toggle="modal" href="#portfolioModal1" id="searchButton" disabled>Search</button>
+                        <button class="btn btn-xl btn-primary mt-5 text-uppercase" data-toggle="modal" id="searchButton">Search</button>
                     </div>
                 </div>
             </div>
@@ -175,9 +175,9 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-center">
                         <p class="large text-muted">
-                            We are a small group of students who are doing continued education at UC Irvine's coding bootcamp. This is the website we created for our first group
-                            project. On here we utilized the API's from yelp, edamam and geolocation to give the user instant information on nutrition facts and a nearby location
-                            to eat.
+                            We are a small group of students who are doing continued education at UC Irvine's coding bootcamp. This is the
+                            website we created for our first group project. On here we utilized the API's from yelp, edamam and geolocation to
+                            give the user instant information on nutrition facts and a nearby location to eat.
                         </p>
                     </div>
                 </div>
@@ -203,7 +203,7 @@
         <!-- Portfolio Modals -->
 
         <!-- Modal 1 -->
-        <div class="api-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="api-modal modal" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="close-modal" data-dismiss="modal">
@@ -238,11 +238,12 @@
 
         <!-- Plugin JavaScript -->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
         <!-- Custom scripts for this template -->
         <script src="js/agency.js"></script>
         <script src="js/api-key.js"></script>
-        <script src="js/api.js"></script>
         <script src="js/modal.js"></script>
+        <script src="js/api.js"></script>
     </body>
 </html>
