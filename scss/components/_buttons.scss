@@ -21,6 +21,16 @@
     }
     &:active,
     &:focus {
+<<<<<<< HEAD
         box-shadow: 0 0 0 0.2rem rgba(254, 55, 55, 0.5) !important;
     }
 }
+=======
+        box-shadow: 0 0 0 0.2rem darken($primary, 7.5%) !important;
+    }
+    &:disabled {
+        background-color: $primary;
+        border: $primary;
+    }
+}
+>>>>>>> master

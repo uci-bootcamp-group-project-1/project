@@ -4,8 +4,13 @@ $("<div>", {
     class: "row"
 })
     .append(
+<<<<<<< HEAD
         $("<div>", {
             class: "col-lg-6 col-md-12 mx-auto",
+=======
+        $('<div>', {
+            class: 'col-md-6 col-sm-12 mx-auto',
+>>>>>>> master
             css: {
                 "margin-bottom": "10px"
             }
@@ -13,6 +18,7 @@ $("<div>", {
             $("<div>", {
                 class: "center-wrap",
                 css: {
+<<<<<<< HEAD
                     margin: "0 auto",
                     border: "1px solid lightgrey"
                 }
@@ -28,6 +34,22 @@ $("<div>", {
         ),
         $("<div>", {
             class: "col-lg-6 col-md-12 mx-auto",
+=======
+                    margin: '0 auto'
+                }
+            }).append(
+                $('<h4>', {
+                    class: 'data-title mb-5',
+                    html: 'Recipes'
+                }),
+                $('<div>', {
+                    class: 'recipe-cards'
+                })
+            )
+        ),
+        $('<div>', {
+            class: 'col-md-6 col-sm-12 mx-auto',
+>>>>>>> master
             css: {
                 "margin-bottom": "10px"
             }
@@ -35,6 +57,7 @@ $("<div>", {
             $("<div>", {
                 class: "center-wrap",
                 css: {
+<<<<<<< HEAD
                     margin: "0 auto",
                     border: "1px solid lightgrey"
                 }
@@ -45,11 +68,24 @@ $("<div>", {
                 }),
                 $("<ul>", {
                     class: "yp-cards"
+=======
+                    margin: '0 auto'
+                }
+            }).append(
+                $('<h4>', {
+                    class: 'data-title mb-5',
+                    html: 'Find Your Food Nearby'
+                }),
+                $('<div>', {
+                    class: 'yelp-cards',
+                    html: 'yelp cards'
+>>>>>>> master
                 })
             )
         )
     )
     .appendTo($modal);
+<<<<<<< HEAD
 
 var $reci = $(".rp-cards");
 var $yelp = $(".yp-cards");
@@ -102,3 +138,5 @@ for (var i = 0; i < 5; i++) {
         )
         .appendTo($yelp);
 }
+=======
+>>>>>>> master
