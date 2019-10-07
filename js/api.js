@@ -293,6 +293,7 @@ $("#searchInput").on("keypress", function(e) {
 });
 
 $("#searchButton").on("click", function(e) {
+    e.preventDefault();
     console.log("debug stage 1 button clicked");
     var searchContent = $("#searchInput").val();
     console.log("searchInput : " + searchContent);
@@ -316,7 +317,7 @@ $("#searchButton").on("click", function(e) {
         // run function and render api data
         // when data loaded into model, show model
         console.log("display the modal");
-        $("#portfolioModal1").show();
+        window.location.replace("#portfolioModal1");
         $(".modal-body").data("state", "loading");
         $(".modal-body").trigger("statchange");
         getLocationRunYelp();
@@ -363,5 +364,22 @@ $(document).on("ajaxdone", function() {
     if (ajaxct == 2) {
         $(".modal-body").data("state", "loaded");
         $(".modal-body").trigger("statchange");
+    }
+});
+
+$("#searchInput").on("keyup", function(e) {
+    e.preventDefault();
+    console.log(typeof $(this).val());
+    if (
+        typeof $(this).val() === "string" &&
+        $(this)
+            .val()
+            .split(" ")
+            .join("")
+            .split("").length > 0
+    ) {
+        $("#searchButton").attr("href", "#portfolioModal1");
+    } else {
+        $("#searchButton").removeAttr("href");
     }
 });

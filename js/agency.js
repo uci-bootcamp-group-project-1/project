@@ -42,17 +42,4 @@
     navbarCollapse();
     // Collapse the navbar when page is scrolled
     $(window).scroll(navbarCollapse);
-
-    ////////////////////////////////////
-    // enable search button when search input is filled
-    var $searchInput = $("#searchInput");
-    var $searchButton = $("#searchButton");
-
-    $searchInput.on("change", () => {
-        if ($searchInput.val() === null || $searchInput.val() === undefined) {
-            $searchButton.prop("disabled", true);
-        } else {
-            $searchButton.prop("disabled", false);
-        }
-    });
 })(jQuery); // End of use strict

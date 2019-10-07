@@ -18,7 +18,7 @@ $("<div>", {
                 }
             }).append(
                 $("<h4>", {
-                    class: "data-title mb-5 text-uppercase",
+                    class: "data-title mb-5 text-uppercase edamam-title",
                     html: "Recipes"
                 }),
                 $("<div>", {
@@ -39,8 +39,8 @@ $("<div>", {
                 }
             }).append(
                 $("<h4>", {
-                    class: "data-title mb-5 text-uppercase",
-                    html: "Find Your Food Nearby"
+                    class: "data-title mb-5 text-uppercase yelp-title",
+                    html: "Restaurants Nearby"
                 }),
                 $("<div>", {
                     id: "yelp-cards"

@@ -1,8 +1,8 @@
 // styling for modal
 .api-modal {
     .modal-dialog {
-        max-width: 86vw;
-        margin: 3rem auto;
+        max-width: 80vw;
+        margin: 40px auto;
     }
     .modal-content {
         padding: 100px 0;
@@ -66,5 +66,83 @@
                 background-color: darkgrey;
             }
         }
+    }
+}
+
+.no-gutters {
+    height: 207px;
+}
+.card {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.card-img {
+    height: 207px;
+}
+
+.edamam {
+    background-color: rgb(236, 250, 234);
+}
+
+.yelp {
+    background-color: rgb(247, 230, 230);
+}
+
+.edamam-title {
+    border-bottom: 5px solid green;
+    width: 9rem;
+    margin: 0 auto 4rem auto !important;
+}
+
+.yelp-title {
+    border-bottom: 5px solid $primary;
+    width: 21rem;
+    margin: 0 auto 4rem auto !important;
+}
+
+@media only screen and (max-width: 1300px) {
+    .card-title,
+    .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .card-title,
+    .card-text {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .card-title,
+    .card-text {
+        font-size: 1rem;
+    }
+}
+@media only screen and (max-width: 660px) {
+    .card-title,
+    .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 610px) {
+    .card-title,
+    .card-text {
+        font-size: 0.8rem;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .card-title,
+    .card-text {
+        font-size: 0.7rem;
+    }
+    #hide {
+        display: none !important;
+    }
+    .yelp-title {
+        border-bottom: 5px solid $primary;
+        width: 100%;
+        margin: 0 auto 4rem auto !important;
     }
 }
