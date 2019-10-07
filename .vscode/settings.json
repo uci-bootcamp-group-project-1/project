@@ -1,5 +1,5 @@
 {
-    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrap": "on",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
@@ -11,8 +11,7 @@
     "html.format.endWithNewline": true,
     "html.format.indentInnerHtml": true,
     "prettier.tabWidth": 4,
-    "html.format.wrapLineLength": 0,
     "html.format.wrapAttributes": "aligned-multiple",
-    "prettier.printWidth": 180,
+    "prettier.printWidth": 145,
     "prettier.jsxSingleQuote": true
 }

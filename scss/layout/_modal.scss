@@ -7,6 +7,9 @@
     .modal-content {
         padding: 100px 0;
         text-align: center;
+        div {
+            margin: 0 auto;
+        }
         h2 {
             font-size: 3em;
             margin-bottom: 15px;
@@ -24,9 +27,7 @@
             margin-top: 0;
             margin-bottom: 30px;
         }
-        img {
-            margin-bottom: 30px;
-        }
+        // removed img tag since not using it
         button {
             cursor: pointer;
         }
@@ -67,6 +68,7 @@
         }
     }
 }
+
 .no-gutters {
     height: 207px;
 }
@@ -77,9 +79,70 @@
     height: 207px;
 }
 
+.edamam {
+    background-color: rgb(236, 250, 234);
+}
+
+.yelp {
+    background-color: rgb(247, 230, 230);
+}
+
+.edamam-title {
+    border-bottom: 5px solid green;
+    width: 9rem;
+    margin: 0 auto 4rem auto !important;
+}
+
+.yelp-title {
+    border-bottom: 5px solid $primary;
+    width: 21rem;
+    margin: 0 auto 4rem auto !important;
+}
+
 @media only screen and (max-width: 1300px) {
     .card-title,
     .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .card-title,
+    .card-text {
         font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .card-title,
+    .card-text {
+        font-size: 1rem;
+    }
+}
+@media only screen and (max-width: 660px) {
+    .card-title,
+    .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 610px) {
+    .card-title,
+    .card-text {
+        font-size: 0.8rem;
+    }
+}
+@media only screen and (max-width: 575px) {
+    .card-title,
+    .card-text {
+        font-size: 0.7rem;
+    }
+    #hide {
+        display: none !important;
+    }
+    .yelp-title {
+        border-bottom: 5px solid $primary;
+        width: 100%;
+        margin: 0 auto 4rem auto !important;
     }
 }
