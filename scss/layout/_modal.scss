@@ -76,3 +76,10 @@
 .card-img {
     height: 207px;
 }
+
+@media only screen and (max-width: 1300px) {
+    .card-title,
+    .card-text {
+        font-size: 0.8rem;
+    }
+}

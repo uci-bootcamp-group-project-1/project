@@ -398,6 +398,13 @@ header.masthead .intro-text .intro-heading {
   height: 207px;
 }
 
+@media only screen and (max-width: 1300px) {
+  .card-title,
+  .card-text {
+    font-size: 0.8rem;
+  }
+}
+
 .team-member {
   margin-bottom: 50px;
   text-align: center;

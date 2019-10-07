@@ -94,7 +94,7 @@ $(document).ready(function() {
                             class: 'row no-gutters'
                         }).append(
                             $('<div>', {
-                                class: 'col-4'
+                                class: 'col-4 col-sm-4'
                             }).append(
                                 $('<img>', {
                                     class: 'card-img',
@@ -102,7 +102,7 @@ $(document).ready(function() {
                                 })
                             ),
                             $('<div>', {
-                                class: 'col-4'
+                                class: 'col-6 col-sm-4'
                             }).append(
                                 $('<div>', {
                                     class: 'card-body'
@@ -116,7 +116,7 @@ $(document).ready(function() {
                                         html: 'Recipe Calories: ' + calories
                                     }),
                                     $('<a>', {
-                                        class: 'btn btn-success btn-xs text-uppercase',
+                                        class: 'card-text text-uppercase',
                                         href: url,
                                         html: 'view details',
                                         target: '_blank'
@@ -124,7 +124,7 @@ $(document).ready(function() {
                                 )
                             ),
                             $('<div>', {
-                                class: 'col-4'
+                                class: 'col-sm-4'
                             }).append(
                                 $('<div>', {
                                     class: 'card-body'
@@ -193,7 +193,7 @@ $(document).ready(function() {
                             class: 'row no-gutters'
                         }).append(
                             $('<div>', {
-                                class: 'col-4'
+                                class: 'col-4 col-sm-4'
                             }).append(
                                 $('<img>', {
                                     class: 'card-img',
@@ -201,7 +201,7 @@ $(document).ready(function() {
                                 })
                             ),
                             $('<div>', {
-                                class: 'col-4'
+                                class: 'col-6 col-sm-4'
                             }).append(
                                 $('<div>', {
                                     class: 'card-body'
@@ -215,8 +215,9 @@ $(document).ready(function() {
                                         html: restaurantPhone,
                                         href: 'tel:' + restaurantPhoneLink
                                     }),
+                                    $('<br>'),
                                     $('<a>', {
-                                        class: 'btn btn-success btn-xs text-uppercase mt-4',
+                                        class: 'card-text text-uppercase',
                                         href: restaurantUrl,
                                         html: 'visit website',
                                         target: '_blank'
@@ -224,7 +225,7 @@ $(document).ready(function() {
                                 )
                             ),
                             $('<div>', {
-                                class: 'col-4'
+                                class: 'col-sm-4'
                             }).append(
                                 $('<div>', {
                                     class: 'card-body'
