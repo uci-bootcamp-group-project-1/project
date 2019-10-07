@@ -510,6 +510,24 @@ header.masthead .intro-text .intro-heading {
     margin-top: 0;
 }
 
+.github:active,
+.github:focus,
+.github:hover {
+  background-color: dimgray !important;
+}
+
+.linkedin:active,
+.linkedin:focus,
+.linkedin:hover {
+  background-color: #0077b5 !important;
+}
+
+.insta:active,
+.insta:focus,
+.insta:hover {
+  background-image: linear-gradient(to right bottom, blue, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80, yellow) !important;
+}
+
 .footer {
     padding: 25px 0;
     text-align: center;
@@ -537,6 +555,18 @@ ul.social-buttons {
 }
 
 ul.social-buttons li a {
+<<<<<<< HEAD
+  font-size: 20px;
+  line-height: 50px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s;
+  color: white;
+  border-radius: 100%;
+  outline: none;
+  background-color: #212529;
+=======
     font-size: 20px;
     line-height: 50px;
     display: block;
@@ -553,4 +583,5 @@ ul.social-buttons li a:active,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:hover {
     background-color: #cc2d2d;
+>>>>>>> origin
 }
