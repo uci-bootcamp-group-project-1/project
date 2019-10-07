@@ -34,8 +34,10 @@ $("#search").click(function() {
         // DOM: update model title
         $("#searchContent").html(searchContent);
         // run function and render api data
-        // IMPORTANT, when data is stored, show model
-        searchFood;
+        // when data loaded into model, show model
+        $.search();
+        $.loadYP();
+        $("APImodel").show();
     } else {
         // if input is not in valid format, prompt user a model alert stating the valid format
         $.alert({
