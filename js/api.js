@@ -19,10 +19,8 @@ $(document).ready(function() {
     // fetch current location, pass it to yelp API call, run API call.
     function runYelp(position) {
         var searchInput = $('#searchInput').val();
-        console.log(searchInput);
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
-        // console.log(latitude, longitude);
         // edamam ajax call
         var edamamURL = cors + 'https://api.edamam.com/search?q=' + searchInput + '&app_id=' + edamamID + '&app_key=' + edamamKEY + '&from=0&to=5&calories=500-1000';
         $.ajax({
@@ -32,7 +30,6 @@ $(document).ready(function() {
             },
             method: 'GET'
         }).then(function(response) {
-            console.log(response);
             ///////////////////////////////////////
             /// Write edamam Logic here
 
@@ -43,16 +40,19 @@ $(document).ready(function() {
 
             responseItemsSet.forEach(item => {
                 var label = item.recipe.label;
-                // console.log(label);
                 var image = item.recipe.image;
-                // console.log(image);
                 var url = item.recipe.url;
                 // console.log(url);
                 var caloriesDecimal = item.recipe.calories;
                 var calories = Math.floor(caloriesDecimal).toString();
-                console.log(calories);
+                var servings = item.recipe.yield;
+                var servingsDecimal = Math.floor(servings).toString();
+                var calPerPerson = calories / servings;
+                var calPerPersonDecimal = Math.floor(calPerPerson).toString();
                 // var healthLabels = item.recipe.healthLabels;
-                // var healthLabelsSet = healthLabels.slice(0, 2);
+                // console.log(healthLabels);
+                // var healthLabelsSet = healthLabels.slice(0, 1);
+                // console.log(healthLabelsSet);
                 // healthLabelsSet.forEach(labelItem => {
                 //     var healthLabel = labelItem;
                 //     // console.log(healthLabel);
@@ -64,26 +64,28 @@ $(document).ready(function() {
                 //     );
                 // });
 
-                var dietLabels = item.recipe.dietLabels;
-                dietLabelsSet = dietLabels.slice(0, 3);
-                dietLabelsSet.forEach(dietLabelItem => {
-                    var dietLabel = dietLabelItem;
-                    // console.log(dietLabel);
-                    $('.healthLabel').append(
-                        $('<li>', {
-                            class: 'card-text',
-                            html: dietLabel
-                        })
-                    );
-                });
+                // var dietLabels = item.recipe.dietLabels[item];
+                // console.log(dietLabels);
+                // dietLabelsSet = dietLabels.slice(0, 3);
+                // // console.log(dietLabelsSet);
+                // dietLabelsSet.forEach(dietLabelItem => {
+                //     var dietLabel = dietLabelItem;
+                //     // console.log(dietLabel);
+                //     $('.healthLabel').append(
+                //         $('<li>', {
+                //             class: 'card-text',
+                //             html: dietLabel
+                //         })
+                //     );
+                // });
                 // console.log(healthLabelsSet);
 
                 /////////////////////////////////////
                 // Create recipe modal cards and append data
                 var $edamamCards = $('.recipe-cards');
 
-                $('<a>', {
-                    class: 'card mb-3',
+                $('<div>', {
+                    class: 'card mb-5',
                     href: url,
                     target: '_blank'
                 })
@@ -92,7 +94,7 @@ $(document).ready(function() {
                             class: 'row no-gutters'
                         }).append(
                             $('<div>', {
-                                class: 'col-md-4'
+                                class: 'col-4'
                             }).append(
                                 $('<img>', {
                                     class: 'card-img',
@@ -100,12 +102,12 @@ $(document).ready(function() {
                                 })
                             ),
                             $('<div>', {
-                                class: 'col-md-4'
+                                class: 'col-4'
                             }).append(
                                 $('<div>', {
                                     class: 'card-body'
                                 }).append(
-                                    $('<h5>', {
+                                    $('<h6>', {
                                         class: 'card-title',
                                         html: label
                                     }),
@@ -114,25 +116,30 @@ $(document).ready(function() {
                                         html: 'Recipe Calories: ' + calories
                                     }),
                                     $('<a>', {
-                                        class: 'card-text',
+                                        class: 'btn btn-success btn-xs text-uppercase',
                                         href: url,
-                                        html: 'Visit Recipe Webpage',
+                                        html: 'view details',
                                         target: '_blank'
                                     })
                                 )
                             ),
                             $('<div>', {
-                                class: 'col-md-4'
+                                class: 'col-4'
                             }).append(
                                 $('<div>', {
                                     class: 'card-body'
                                 }).append(
-                                    $('<h5>', {
+                                    $('<h6>', {
                                         class: 'card-title',
-                                        html: 'Health Benefits'
+                                        html: 'Servings'
                                     }),
-                                    $('<ul>', {
-                                        class: 'healthLabel'
+                                    $('<p>', {
+                                        class: 'card-text',
+                                        html: 'Serves ' + servingsDecimal + ' people'
+                                    }),
+                                    $('<p>', {
+                                        class: 'card-text',
+                                        html: calPerPersonDecimal + ' calories per serving'
                                     })
                                 )
                             )
@@ -156,23 +163,84 @@ $(document).ready(function() {
                 console.log('success: ' + data);
             }
         }).then(function(response) {
-            console.log(response);
+            // console.log(response);
             var restaurants = response.businesses;
             var restaurantsSet = restaurants.slice(0, 5);
-            // console.log(restaurantsSet[0]);
             restaurantsSet.forEach(item => {
                 var restaurantName = item.name; // name of restaurant
-                var phoneNum = item.display_phone; // phone number
-                var imageUrl = item.image_url; // image
-                var url = item.url; // url of each restaurant
-                var categories = item.categories;
-                var categoriesSet = categories.slice(0, 2);
-                categoriesSet.forEach(itemCategory => {
-                    var category = itemCategory.alias; // category of each restaurant
-                    // console.log(category);
-                });
+                var restaurantPhone = item.display_phone; // phone number
+                var restaurantPhoneLink = item.phone;
+                var restaurantImage = item.image_url; // image
+                var restaurantUrl = item.url; // url of each restaurant
+                var restaurantCategories = item.categories;
+
+                var restaurantCategoriesSet = restaurantCategories.slice(0, 2);
+                // console.log(restaurantCategoriesSet[0].title);
+                // restaurantCategoriesSet.forEach(itemCategory => {
+                //     var category = itemCategory.alias; // category of each restaurant
+                //     // console.log(category);
+                // });
                 /////////////////////////////////////
                 // Create yelp modal cards and append data
+                var $yelpCards = $('#yelp-cards');
+
+                $('<div>', {
+                    class: 'card mb-5',
+                    target: '_blank'
+                })
+                    .append(
+                        $('<div>', {
+                            class: 'row no-gutters'
+                        }).append(
+                            $('<div>', {
+                                class: 'col-4'
+                            }).append(
+                                $('<img>', {
+                                    class: 'card-img',
+                                    src: restaurantImage
+                                })
+                            ),
+                            $('<div>', {
+                                class: 'col-4'
+                            }).append(
+                                $('<div>', {
+                                    class: 'card-body'
+                                }).append(
+                                    $('<h6>', {
+                                        class: 'card-title',
+                                        html: restaurantName
+                                    }),
+                                    $('<a>', {
+                                        class: 'card-text',
+                                        html: restaurantPhone,
+                                        href: 'tel:' + restaurantPhoneLink
+                                    }),
+                                    $('<a>', {
+                                        class: 'btn btn-success btn-xs text-uppercase mt-4',
+                                        href: restaurantUrl,
+                                        html: 'visit website',
+                                        target: '_blank'
+                                    })
+                                )
+                            ),
+                            $('<div>', {
+                                class: 'col-4'
+                            }).append(
+                                $('<div>', {
+                                    class: 'card-body'
+                                }).append(
+                                    $('<h6>', {
+                                        class: 'card-title',
+                                        html: 'Cuisine'
+                                    }),
+                                    $('<p>', {
+                                        html: restaurantCategoriesSet[0].title
+                                    })
+                                )
+                            )
+                        )
+                    )
+                    .appendTo($yelpCards);
             });
         });
     }
@@ -195,7 +263,10 @@ $(document).ready(function() {
         }
     }
 
-    $('#searchButton').on('click', () => {
+    $('#searchButton').on('click', event => {
+        event.preventDefault();
+        $('.recipe-cards').empty();
+        $('#yelp-cards').empty();
         getLocationRunYelp(); // run this function on click when user searches for
     });
 });

@@ -313,9 +313,8 @@ header.masthead .intro-text .intro-heading {
 }
 
 .api-modal .modal-dialog {
-  margin: 1rem;
   max-width: 80vw;
-  margin: 140px auto;
+  margin: 40px auto;
 }
 
 .api-modal .modal-content {
@@ -385,6 +384,18 @@ header.masthead .intro-text .intro-heading {
   /* IE 9 */
   transform: rotate(90deg);
   background-color: darkgrey;
+}
+
+.no-gutters {
+  height: 207px;
+}
+
+.card {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card-img {
+  height: 207px;
 }
 
 .team-member {
