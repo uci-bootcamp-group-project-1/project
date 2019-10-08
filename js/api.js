@@ -15,6 +15,14 @@ var $loader = $('<div>', {
 
 var $locationError = $('#error'); //append this to html page in case of geoLocation error.set time so location disappears after 3 seconds
 
+// truncate strings for titles
+function truncateString(str, num) {
+    if (str.length <= num) {
+        return str;
+    }
+    return str.slice(0, num) + '...';
+}
+
 // get location and run yelp function
 function getLocationRunYelp() {
     ajaxct = 0;
@@ -97,7 +105,8 @@ function showError(error) {
 
 function load() {
     responseItemsSet.forEach(item => {
-        var label = item.recipe.label;
+        var labelFull = item.recipe.label;
+        var label = truncateString(labelFull, 18);
         var image = item.recipe.image;
         var url = item.recipe.url;
         var caloriesDecimal = item.recipe.calories;
@@ -176,7 +185,9 @@ function load() {
     });
 
     restaurantsSet.forEach(item => {
-        var restaurantName = item.name; // name of restaurant
+        var restaurantNameFull = item.name; // name of restaurant
+        var restaurantName = truncateString(restaurantNameFull, 18); // name of restaurant
+
         var restaurantPhone = item.display_phone; // phone number
         var restaurantPhoneLink = item.phone;
         var restaurantImage = item.image_url; // image
@@ -218,6 +229,7 @@ function load() {
                                 html: restaurantPhone,
                                 href: 'tel:' + restaurantPhoneLink
                             }),
+                            $('<br>'),
                             $('<br>'),
                             $('<a>', {
                                 class: 'card-text text-uppercase',
@@ -288,8 +300,8 @@ $('#searchButton').on('click', function(e) {
         // if input is not in valid format, prompt user a model alert stating the valid format
         $.alert({
             // this is a jquery model alert
-            title: 'Input Error!',
-            content: 'Input is food! Empty input also not allowed !'
+            title: 'Oops!',
+            content: "Empty search not allowed. Please enter the food you're looking for!"
         });
     }
 });
