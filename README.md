@@ -16,4 +16,4 @@ An application where you can search for the nutritional value for foods and meal
 
 ---
 
-© 2019 Pablo Motta
+© 2019 Amir Amiravand, Cloud Xu, Pablo Motta
