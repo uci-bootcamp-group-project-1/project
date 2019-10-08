@@ -9,9 +9,9 @@ var responseItemsSet;
 var yelpAuthorization = api.yelp.headers.Authorization;
 var cards;
 var ajaxct;
-var $loader = $('<div>', {
-    html: "<div class='text-center'><div class='spinner-border' role='status'><span class='sr-only'>Loading...</span></div></div>"
-});
+var $loader = $(
+    '<div class="lds-css ng-scope" style="width: 200px; height: 200px;"><div class="lds-spinner" style="width:100%;height:100%"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>'
+);
 
 var $locationError = $('#error'); //append this to html page in case of geoLocation error.set time so location disappears after 3 seconds
 
@@ -283,12 +283,12 @@ $('#searchButton').on('click', function(e) {
     ) {
         console.log('dmsg: content format valid');
         // DOM: update model title
-        $('.recipe-cards').empty();
-        $('#yelp-cards').empty();
-        $cards = $($('.modal-body').html());
-        console.log('debug stage 2 - change status to loading trigger datachange');
-        console.log($('.modal-body'));
-        $('#searchContent').html(searchContent);
+        $(".recipe-cards").empty();
+        $("#yelp-cards").empty();
+        $cards = $($(".modal-body").html()).fadeOut();
+        console.log("debug stage 2 - change status to loading trigger datachange");
+        console.log($(".modal-body"));
+        $("#searchContent").html(searchContent);
         // run function and render api data
         // when data loaded into model, show model
         console.log('display the modal');
@@ -300,6 +300,13 @@ $('#searchButton').on('click', function(e) {
         // if input is not in valid format, prompt user a model alert stating the valid format
         $.alert({
             // this is a jquery model alert
+            columnClass: "col-md-5 col-md-offset-8 col-xs-4 col-xs-offset-8",
+            escapeKey: true,
+            backgroundDismiss: true,
+            animation: "scale",
+            buttons: { Continue: { btnClass: "btn-red" } },
+            theme: "bootstrap",
+            closeIcon: true
             title: 'Oops!',
             content: "Empty search not allowed. Please enter the food you're looking for!"
         });
@@ -329,6 +336,7 @@ $('.modal-body').on('statchange', function(e) {
             $('.modal-body')
                 .empty()
                 .append($cards);
+            $cards.fadeIn(2000);
             load();
             break;
     }
