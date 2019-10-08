@@ -160,7 +160,7 @@ function load() {
                         )
                     ),
                     $('<div>', {
-                        class: 'col-sm-4'
+                        class: 'col-sm-4 hide'
                     }).append(
                         $('<div>', {
                             class: 'card-body'
@@ -240,7 +240,7 @@ function load() {
                         )
                     ),
                     $('<div>', {
-                        class: 'col-sm-4'
+                        class: 'col-sm-4 hide'
                     }).append(
                         $('<div>', {
                             class: 'card-body'

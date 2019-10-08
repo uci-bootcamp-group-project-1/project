@@ -109,7 +109,7 @@
 @media only screen and (max-width: 1200px) {
     .card-title,
     .card-text {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 }
 
@@ -119,14 +119,14 @@
         font-size: 1rem;
     }
 }
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 790px) {
     .card-title,
     .card-text {
         font-size: 0.9rem;
     }
 }
 
-@media only screen and (max-width: 610px) {
+@media only screen and (max-width: 690px) {
     .card-title,
     .card-text {
         font-size: 0.8rem;
@@ -135,9 +135,9 @@
 @media only screen and (max-width: 575px) {
     .card-title,
     .card-text {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
-    #hide {
+    .hide {
         display: none !important;
     }
     .yelp-title {
