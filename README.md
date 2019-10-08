@@ -1,6 +1,8 @@
 # nYelp
 
-An application where you can search for the nutritional value for foods and meals and find restaurants on yelp that server them nearby.
+![password generator demo](./img/nYelp.png)
+
+An application where you can search for the nutritional value for foods and meals and find restaurants on yelp that may server them nearby.
 
 -   Get the most detailed Nutritional value for your meal.
 -   See a recipe for your meal.
@@ -11,3 +13,7 @@ An application where you can search for the nutritional value for foods and meal
 -   `git pull / git merge`
 -   `npm install`
 -   `npm start` or `gulp watch`
+
+---
+
+© 2019 Pablo Motta
