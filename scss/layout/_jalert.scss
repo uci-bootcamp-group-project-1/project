@@ -1,0 +1,29 @@
+@-webkit-keyframes type-red {
+    1%,
+    100% {
+        border-color: #cc2d2d;
+    }
+    50% {
+        border-color: #e23e3e;
+    }
+}
+
+@keyframes type-red {
+    1%,
+    100% {
+        border-color: #cc2d2d;
+    }
+    50% {
+        border-color: #e23e3e;
+    }
+}
+
+.jconfirm .jconfirm-box.jconfirm-type-animated {
+    border-top: solid 7px #cc2d2d;
+    -webkit-animation-name: type-red;
+    animation-name: type-red;
+}
+
+.jconfirm.jconfirm-bootstrap .jconfirm-box {
+    border: solid 1px rgba(0, 0, 0, 0.4);
+}
