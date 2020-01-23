@@ -1,0 +1,36 @@
+// Styling for the team section
+.team-member {
+    margin-bottom: 50px;
+    text-align: center;
+    img {
+        width: 225px;
+        height: 225px;
+        border: 7px solid fade-out($black, 0.9);
+    }
+    h4 {
+        margin-top: 25px;
+        margin-bottom: 0;
+        text-transform: none;
+    }
+    p {
+        margin-top: 0;
+    }
+}
+//github
+.github:active,
+.github:focus,
+.github:hover {
+    background-color: rgb(105, 105, 105) !important;
+}
+//linkedin
+.linkedin:active,
+.linkedin:focus,
+.linkedin:hover {
+    background-color: #0077b5 !important;
+}
+//instagram
+.insta:active,
+.insta:focus,
+.insta:hover {
+    background-image: linear-gradient(to right bottom, blue, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80, yellow) !important;
+}

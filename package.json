@@ -1,0 +1,55 @@
+{
+    "title": "nYelp",
+    "name": "github.com",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "node_modules/.bin/gulp watch"
+    },
+    "description": "A site where can search food nutrition and find restaurants serving that food nearby.",
+    "keywords": [
+        "css",
+        "sass",
+        "html",
+        "responsive",
+        "theme",
+        "template"
+    ],
+    "homepage": "https://www.github.com",
+    "bugs": {
+        "url": "https://www.github.com",
+        "email": "example@gmail.com"
+    },
+    "license": "MIT",
+    "author": "Amir, Cloud and Pablo",
+    "contributors": [
+        ""
+    ],
+    "repository": {
+        "type": "",
+        "url": ""
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "5.10.2",
+        "api": "^1.0.0",
+        "bootstrap": "4.3.1",
+        "cryptiles": "^4.1.3",
+        "jquery": "3.4.1",
+        "jquery-confirm": "^3.3.4",
+        "jquery.easing": "^1.4.1",
+        "popper.js": "^1.15.0"
+    },
+    "devDependencies": {
+        "browser-sync": "2.26.7",
+        "del": "5.1.0",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "7.0.0",
+        "gulp-clean-css": "4.2.0",
+        "gulp-header": "2.0.9",
+        "gulp-plumber": "^1.2.1",
+        "gulp-rename": "1.4.0",
+        "gulp-sass": "4.0.2",
+        "gulp-uglify": "3.0.2",
+        "hoek": "^6.1.3",
+        "merge-stream": "2.0.0"
+    }
+}
